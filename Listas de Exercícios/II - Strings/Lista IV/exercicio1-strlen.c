@@ -10,7 +10,7 @@ mesmo objetivo daquelas.
 
 int stringLength(char str[]);
 
-void main()
+int main()
 {
     char nome[50];
     int strTam;
@@ -31,5 +31,5 @@ int stringLength(char str[])
     {
         i++;
     }
-    return i;
+    return i - 1;
 }
