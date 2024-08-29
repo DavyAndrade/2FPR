@@ -45,7 +45,7 @@ void preencherMatriz(int linha, int coluna, int matriz[linha][coluna])
     {
         for (j = 0; j < coluna; j++)
         {
-            printf("Valor [%d][%d]: ", i + 1, j + 1);
+            printf("Insira o Valor [%d][%d]: ", i + 1, j + 1);
             scanf("%d", &matriz[i][j]);
         }
     }
@@ -55,7 +55,7 @@ void exibirMatriz(int linha, int coluna, int matriz[linha][coluna])
 {
     int i, j;
 
-    printf("Matriz [%d][%d]: ", linha, coluna);
+    printf("\nMatriz [%d][%d]: \n", linha, coluna);
     for (i = 0; i < linha; i++)
     {
         for (j = 0; j < coluna; j++)
@@ -76,7 +76,7 @@ void somaColunas(int m, int n, int M[m][n], int V[])
 
         for (j = 0; j < n; j++)
         {
-            V[i] += M[j][i];
+            V[i] += M[j][i]; // linha, coluna
         }
     }
 }

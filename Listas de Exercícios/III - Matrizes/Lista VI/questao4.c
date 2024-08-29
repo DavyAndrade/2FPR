@@ -6,9 +6,9 @@ determine se ela é simétrica.
 
 #include <stdio.h>
 
-void transposta(int ordem, int m[ordem][ordem], int Mt[ordem][ordem]);
-void preencherMatriz(int ordem, int m[ordem][ordem]);
-int matrizSimetrica(int ordem, int m[ordem][ordem], int Mt[ordem][ordem]);
+void transposta(int ordem, int matriz[ordem][ordem], int matrizTransposta[ordem][ordem]);
+void preencherMatriz(int ordem, int matriz[ordem][ordem]);
+int matrizSimetrica(int ordem, int matriz[ordem][ordem], int matrizTransposta[ordem][ordem]);
 
 int main()
 {
@@ -33,22 +33,22 @@ int main()
     }
 }
 
-void preencherMatriz(int ordem, int m[ordem][ordem])
+void preencherMatriz(int ordem, int matriz[ordem][ordem])
 {
     int i, j;
 
-    printf("Preencha a Matriz de %dx%d\n", ordem, ordem);
+    srand(time(NULL));
+
     for (i = 0; i < ordem; i++)
     {
         for (j = 0; j < ordem; j++)
         {
-            printf("Valor [%d][%d]: ", i + 1, j + 1);
-            scanf("%d", &m[i][j]);
+            matriz[i][j] = rand() % 10;
         }
     }
 }
 
-void transposta(int ordem, int m[ordem][ordem], int Mt[ordem][ordem])
+void transposta(int ordem, int m[ordem][ordem], int matrizTransposta[ordem][ordem])
 {
     int i, j;
 
@@ -56,12 +56,12 @@ void transposta(int ordem, int m[ordem][ordem], int Mt[ordem][ordem])
     {
         for (j = 0; j < ordem; j++)
         {
-            Mt[j][i] = m[i][j];
+            matrizTransposta[j][i] = m[i][j];
         }
     }
 }
 
-int matrizSimetrica(int ordem, int m[ordem][ordem], int Mt[ordem][ordem])
+int matrizSimetrica(int ordem, int matriz[ordem][ordem], int matrizTransposta[ordem][ordem])
 {
     int i, j;
 
@@ -69,7 +69,7 @@ int matrizSimetrica(int ordem, int m[ordem][ordem], int Mt[ordem][ordem])
     {
         for (j = 0; j < ordem; j++)
         {
-            if (m[i][j] != Mt[i][j])
+            if (matriz[i][j] != matrizTransposta[i][j])
             {
                 return 0;
             }

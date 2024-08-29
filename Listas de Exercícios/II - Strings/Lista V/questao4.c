@@ -39,44 +39,17 @@ int main()
 
 int removerCaracteres(char s[], int p1, int p2)
 {
-    int i, tam = strlen(s), inicial, final;
+    int i, j, tam = strlen(s);
 
-    if (p1 < 0 || p2 < 0 || p1 > tam || p2 > tam)
+    if (p1 < 0 || p1 > p2 || p2 > tam)
     {
         return 0;
     }
 
-    if (p1 > p2)
+    for (i = p1, j = p2; s[j]; i++, j++)
     {
-        inicial = p2;
-        final = p1;
-
-        for (i = inicial; i < final; i++)
-        {
-            s[i] = s[i + 1];
-        }
-        s[i] = '\0';
-        return 1;
+        s[i] = s[j];
     }
-    else if (p2 > p1)
-    {
-        inicial = p1;
-        final = p2;
-
-        for (i = inicial; i < final; i++)
-        {
-            s[i] = s[i + 1];
-        }
-        s[i] = '\0';
-        return 1;
-    }
-    else
-    {
-        for (i = p1; s[i]; i++)
-        {
-            s[i] = s[i + 1];
-        }
-        s[i] = '\0';
-        return 1;
-    }
+    s[i] = '\0';
+    return 1;
 }

@@ -6,8 +6,9 @@ reais, gere a matriz Mt, sua transposta.
 
 #include <stdio.h>
 
-void preencherMatriz(int linha, int coluna, float matriz[linha][coluna]);
 void transposta(int m, int n, float M[m][n], float Mt[n][m]);
+void preencherMatriz(int linha, int coluna, float matriz[linha][coluna]);
+void exibirMatriz(int linha, int coluna, float matriz[linha][coluna]);
 
 int main()
 {
@@ -22,29 +23,39 @@ int main()
 
     transposta(linhas, colunas, matriz, matrizTransposta);
 
-    printf("\nMatriz Transposta Mt[%d][%d]:\n", colunas, linhas);
-    for (i = 0; i < colunas; i++)
-    {
-        for (j = 0; j < linhas; j++)
-        {
-            printf("%.1f ", matrizTransposta[i][j]);
-        }
-        printf("\n");
-    }
+    printf("\nMatriz Original:\n");
+    exibirMatriz(linhas, colunas, matriz);
+
+    printf("\n\nMatriz Transposta:\n");
+    exibirMatriz(colunas, linhas, matrizTransposta);
 }
 
 void preencherMatriz(int linha, int coluna, float matriz[linha][coluna])
 {
     int i, j;
 
-    printf("Preencha a Matriz de %dx%d\n", linha, coluna);
+    srand(time(NULL));
+
     for (i = 0; i < linha; i++)
     {
         for (j = 0; j < coluna; j++)
         {
-            printf("Valor [%d][%d]: ", i + 1, j + 1);
-            scanf("%f", &matriz[i][j]);
+            matriz[i][j] = rand() % 10;
         }
+    }
+}
+
+void exibirMatriz(int linha, int coluna, float matriz[linha][coluna])
+{
+    int i, j;
+
+    for (i = 0; i < linha; i++)
+    {
+        for (j = 0; j < coluna; j++)
+        {
+            printf("%.1f ", matriz[i][j]);
+        }
+        printf("\n");
     }
 }
 

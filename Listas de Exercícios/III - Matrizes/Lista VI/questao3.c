@@ -15,8 +15,9 @@ seguir (que consiste em uma matriz de ordem
 #include <stdio.h>
 
 void novaMatriz(int ordem, int m[ordem][ordem]);
+void exibirMatriz(int ordem, int matriz[ordem][ordem]);
 
-int main()
+    int main()
 {
     int ordem, i, j;
 
@@ -49,5 +50,19 @@ void novaMatriz(int ordem, int m[ordem][ordem])
             m[i][j] = i + cont;
             cont++;
         }
+    }
+}
+
+void exibirMatriz(int ordem, int matriz[ordem][ordem])
+{
+    int i, j;
+
+    for (i = 0; i < ordem; i++)
+    {
+        for (j = 0; j < ordem; j++)
+        {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
     }
 }

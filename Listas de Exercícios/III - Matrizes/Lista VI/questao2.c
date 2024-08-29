@@ -7,8 +7,9 @@ na linha L da matriz.
 
 #include <stdio.h>
 
-void preencherMatriz(int linha, int coluna, int matriz[linha][coluna]);
 int identificarNum(int m, int n, int M[m][n], int L, int X);
+void preencherMatriz(int linha, int coluna, int matriz[linha][coluna]);
+void exibirMatriz(int linha, int coluna, int matriz[linha][coluna]);
 
 int main()
 {
@@ -21,7 +22,10 @@ int main()
 
     preencherMatriz(linha, coluna, matriz);
 
-    printf("Entre com o numero que deseja encontrar: ");
+    printf("Matriz:\n");
+    exibirMatriz(linha, coluna, matriz);
+
+    printf("\nEntre com o numero que deseja encontrar: ");
     scanf("%d", &num);
 
     printf("Entre com a linha em que deseja encontrar o numero: ");
@@ -29,11 +33,11 @@ int main()
 
     if (identificarNum(linha, coluna, matriz, target, num))
     {
-        printf("O numero %d foi encontrado na linha %d.", num, target);
+        printf("\nO numero %d foi encontrado na linha %d.", num, target);
     }
     else
     {
-        printf("o numero %d nao foi encontrado na linha %d.", num, target);
+        printf("\nO numero %d nao foi encontrado na linha %d.", num, target);
     }
 }
 
@@ -41,29 +45,40 @@ void preencherMatriz(int linha, int coluna, int matriz[linha][coluna])
 {
     int i, j;
 
-    printf("Preencha a Matriz de %dx%d\n", linha, coluna);
+    srand(time(NULL));
+
     for (i = 0; i < linha; i++)
     {
         for (j = 0; j < coluna; j++)
         {
-            printf("Valor [%d][%d]: ", i + 1, j + 1);
-            scanf("%d", &matriz[i][j]);
+            matriz[i][j] = rand() % 10;
         }
+    }
+}
+
+void exibirMatriz(int linha, int coluna, int matriz[linha][coluna])
+{
+    int i, j;
+
+    for (i = 0; i < linha; i++)
+    {
+        for (j = 0; j < coluna; j++)
+        {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
     }
 }
 
 int identificarNum(int m, int n, int M[m][n], int L, int X)
 {
-    int i, j;
+    int i;
 
-    for (i = 0; i < L; i++)
+    for (i = 0; i < n; i++)
     {
-        for (j = 0; j < n; j++)
+        if (M[L][i] == X)
         {
-            if (M[i][j] == X)
-            {
-                return 1;
-            }
+            return 1;
         }
     }
     return 0;
