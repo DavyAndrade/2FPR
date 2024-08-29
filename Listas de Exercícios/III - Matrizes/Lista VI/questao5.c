@@ -40,13 +40,13 @@ void preencherMatriz(int linha, int coluna, int matriz[linha][coluna])
 {
     int i, j;
 
-    printf("Preencha a Matriz de %dx%d\n", linha, coluna);
+    srand(time(NULL));
+
     for (i = 0; i < linha; i++)
     {
         for (j = 0; j < coluna; j++)
         {
-            printf("Insira o Valor [%d][%d]: ", i + 1, j + 1);
-            scanf("%d", &matriz[i][j]);
+            matriz[i][j] = rand()%10;
         }
     }
 }
