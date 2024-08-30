@@ -5,6 +5,8 @@ determine se ela é simétrica.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 void transposta(int ordem, int matriz[ordem][ordem], int matrizTransposta[ordem][ordem]);
 void preencherMatriz(int ordem, int matriz[ordem][ordem]);

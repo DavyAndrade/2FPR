@@ -11,6 +11,8 @@ coluna de M, e assim por diante.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 void preencherMatriz(int linha, int coluna, int matriz[linha][coluna]);
 void exibirMatriz(int linha, int coluna, int matriz[linha][coluna]);

@@ -5,6 +5,8 @@ reais, gere a matriz Mt, sua transposta.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 void transposta(int m, int n, float M[m][n], float Mt[n][m]);
 void preencherMatriz(int linha, int coluna, float matriz[linha][coluna]);

@@ -6,6 +6,8 @@ na linha L da matriz.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int identificarNum(int m, int n, int M[m][n], int L, int X);
 void preencherMatriz(int linha, int coluna, int matriz[linha][coluna]);
