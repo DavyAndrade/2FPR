@@ -56,7 +56,6 @@ int main()
     int funcionarioComMenorVenda = funcionarioComMenosVendas(meses, funcionarios, loja);
 
     printf("================================\n");
-
     printf("Total de Vendas durante o Ano: %d\n", totalAno);
     printf("Total de Vendas no Mes %d: %d\n", mes, totalMes);
     printf("Total de Vendas do Funcionario %d: %d\n", funcionario, totalFuncionario);
