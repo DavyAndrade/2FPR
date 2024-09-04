@@ -19,7 +19,7 @@ void exibirMatriz(int ordem, int matriz[ordem][ordem]);
 
     int main()
 {
-    int ordem, i, j;
+    int ordem;
 
     printf("Entre com a ordem da matriz: ");
     scanf("%d", &ordem);
@@ -28,14 +28,8 @@ void exibirMatriz(int ordem, int matriz[ordem][ordem]);
 
     novaMatriz(ordem, matriz);
 
-    for (i = 0; i < ordem; i++)
-    {
-        for (j = 0; j < ordem; j++)
-        {
-            printf("%d ", matriz[i][j]);
-        }
-        printf("\n");
-    }
+    printf("Matriz de Ordem %d: \n", ordem);
+    exibirMatriz(ordem, matriz);
 }
 
 void novaMatriz(int ordem, int m[ordem][ordem])

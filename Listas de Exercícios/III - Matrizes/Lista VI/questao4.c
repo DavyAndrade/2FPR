@@ -8,9 +8,8 @@ determine se ela é simétrica.
 #include <stdlib.h>
 #include <time.h>
 
-void transposta(int ordem, int matriz[ordem][ordem], int matrizTransposta[ordem][ordem]);
 void preencherMatriz(int ordem, int matriz[ordem][ordem]);
-int matrizSimetrica(int ordem, int matriz[ordem][ordem], int matrizTransposta[ordem][ordem]);
+int matrizSimetrica(int ordem, int matriz[ordem][ordem]);
 
 int main()
 {
@@ -20,12 +19,10 @@ int main()
     scanf("%d", &ordem);
 
     int matriz[ordem][ordem];
-    int matrizTransposta[ordem][ordem];
 
     preencherMatriz(ordem, matriz);
-    transposta(ordem, matriz, matrizTransposta);
 
-    if (matrizSimetrica(ordem, matriz, matrizTransposta))
+    if (matrizSimetrica(ordem, matriz))
     {
         printf("A Matriz informada eh simetrica.");
     }
@@ -50,28 +47,17 @@ void preencherMatriz(int ordem, int matriz[ordem][ordem])
     }
 }
 
-void transposta(int ordem, int m[ordem][ordem], int matrizTransposta[ordem][ordem])
+
+
+int matrizSimetrica(int ordem, int matriz[ordem][ordem])
 {
     int i, j;
 
-    for (i = 0; i < ordem; i++)
+    for (i = 0; i < ordem-1; i++)
     {
-        for (j = 0; j < ordem; j++)
+        for (j = i+1; j < ordem; j++)
         {
-            matrizTransposta[j][i] = m[i][j];
-        }
-    }
-}
-
-int matrizSimetrica(int ordem, int matriz[ordem][ordem], int matrizTransposta[ordem][ordem])
-{
-    int i, j;
-
-    for (i = 0; i < ordem; i++)
-    {
-        for (j = 0; j < ordem; j++)
-        {
-            if (matriz[i][j] != matrizTransposta[i][j])
+            if (matriz[i][j] != matriz[j][i])
             {
                 return 0;
             }
