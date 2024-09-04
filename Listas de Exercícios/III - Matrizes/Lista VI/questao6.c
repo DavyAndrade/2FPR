@@ -22,18 +22,18 @@ vendeu durante o ano.
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <limits.h>
+#include <float.h>
 
 #define funcionarios 10
 #define meses 12
 
-void preencherMatriz(int linha, int coluna, int matriz[linha][coluna]);
-void exibirMatriz(int linha, int coluna, int matriz[linha][coluna]);
-int totalVendidoNoAno(int linha, int coluna, int matriz[linha][coluna]);
-int totalVendidoNoMes(int linha, int coluna, int matriz[linha][coluna], int mes);
-int totalVendidoPorFuncionario(int linha, int coluna, int matriz[linha][coluna], int funcionario);
-int mesComMaisVendas(int linha, int coluna, int matriz[linha][coluna]);
-int funcionarioComMenosVendas(int linha, int coluna, int matriz[linha][coluna]);
+void preencherMatriz(int linha, int coluna, float matriz[linha][coluna]);
+void exibirMatriz(int linha, int coluna, float matriz[linha][coluna]);
+float totalVendidoNoAno(int linha, int coluna, float matriz[linha][coluna]);
+float totalVendidoNoMes(int linha, int coluna, float matriz[linha][coluna], int mes);
+float totalVendidoPorFuncionario(int linha, int coluna, float matriz[linha][coluna], int funcionario);
+int mesComMaisVendas(int linha, int coluna, float matriz[linha][coluna]);
+int funcionarioComMenosVendas(int linha, int coluna, float matriz[linha][coluna]);
 
 int main()
 {
@@ -49,22 +49,22 @@ int main()
     preencherMatriz(meses, funcionarios, loja);
     exibirMatriz(meses, funcionarios, loja);
 
-    int totalAno = totalVendidoNoAno(meses, funcionarios, loja);
-    int totalMes = totalVendidoNoMes(meses, funcionarios, loja, mes);
-    int totalFuncionario = totalVendidoPorFuncionario(meses, funcionarios, loja, funcionario);
+    float totalAno = totalVendidoNoAno(meses, funcionarios, loja);
+    float totalMes = totalVendidoNoMes(meses, funcionarios, loja, mes);
+    float totalFuncionario = totalVendidoPorFuncionario(meses, funcionarios, loja, funcionario);
     int mesComMaiorVenda = mesComMaisVendas(meses, funcionarios, loja);
     int funcionarioComMenorVenda = funcionarioComMenosVendas(meses, funcionarios, loja);
 
     printf("================================\n");
-    printf("Total de Vendas durante o Ano: %d\n", totalAno);
-    printf("Total de Vendas no Mes %d: %d\n", mes, totalMes);
-    printf("Total de Vendas do Funcionario %d: %d\n", funcionario, totalFuncionario);
+    printf("Total de Vendas durante o Ano: %.2f\n", totalAno);
+    printf("Total de Vendas no Mes %d: %.2f\n", mes, totalMes);
+    printf("Total de Vendas do Funcionario %.2f: %d\n", funcionario, totalFuncionario);
     printf("Mes com Maior Indice de Vendas: Mes %d\n", mesComMaiorVenda);
     printf("ID do Funcionario com Menos Vendas: %d", funcionarioComMenorVenda);
     printf("\n================================\n");
 }
 
-void preencherMatriz(int linha, int coluna, int matriz[linha][coluna])
+void preencherMatriz(int linha, int coluna, float matriz[linha][coluna])
 {
     int i, j;
 
@@ -79,7 +79,7 @@ void preencherMatriz(int linha, int coluna, int matriz[linha][coluna])
     }
 }
 
-void exibirMatriz(int linha, int coluna, int matriz[linha][coluna])
+void exibirMatriz(int linha, int coluna, float matriz[linha][coluna])
 {
     int i, j;
 
@@ -89,13 +89,13 @@ void exibirMatriz(int linha, int coluna, int matriz[linha][coluna])
 
         for (j = 0; j < coluna; j++)
         {
-            printf("%d ", matriz[i][j]);
+            printf("%.2f ", matriz[i][j]);
         }
         printf("\n");
     }
 }
 
-int totalVendidoNoAno(int linha, int coluna, int matriz[linha][coluna])
+float totalVendidoNoAno(int linha, int coluna, float matriz[linha][coluna])
 {
     int i, j, totalDeVendas = 0;
 
@@ -110,7 +110,7 @@ int totalVendidoNoAno(int linha, int coluna, int matriz[linha][coluna])
     return totalDeVendas;
 }
 
-int totalVendidoNoMes(int linha, int coluna, int matriz[linha][coluna], int mes)
+float totalVendidoNoMes(int linha, int coluna, float matriz[linha][coluna], int mes)
 {
     int i, totalMes = 0;
 
@@ -122,7 +122,7 @@ int totalVendidoNoMes(int linha, int coluna, int matriz[linha][coluna], int mes)
     return totalMes;
 }
 
-int totalVendidoPorFuncionario(int linha, int coluna, int matriz[linha][coluna], int funcionario)
+float totalVendidoPorFuncionario(int linha, int coluna, float matriz[linha][coluna], int funcionario)
 {
     int i, totalFuncionario = 0;
 
@@ -134,9 +134,10 @@ int totalVendidoPorFuncionario(int linha, int coluna, int matriz[linha][coluna],
     return totalFuncionario;
 }
 
-int mesComMaisVendas(int linha, int coluna, int matriz[linha][coluna])
+int mesComMaisVendas(int linha, int coluna, float matriz[linha][coluna])
 {
-    int i, j, maiorVendas = INT_MIN, mesAtual, maisVendas;
+    int i, j;
+    float maiorVendas = FLT_MIN, mesAtual, maisVendas;
 
     for (i = 0; i < linha; i++)
     {
@@ -156,9 +157,10 @@ int mesComMaisVendas(int linha, int coluna, int matriz[linha][coluna])
     return maisVendas;
 }
 
-int funcionarioComMenosVendas(int linha, int coluna, int matriz[linha][coluna])
+int funcionarioComMenosVendas(int linha, int coluna, float matriz[linha][coluna])
 {
-    int i, j, menorVendas = INT_MAX, funcionarioAtual, menosVendas;
+    int i, j;
+    float menorVendas = FLT_MAX, funcionarioAtual, menosVendas;
 
     for (i = 0; i < linha; i++)
     {
