@@ -54,6 +54,13 @@ int main()
 int moverLinha(int linha, int coluna, int matriz[linha][coluna], int row)
 {
     int i, j;
+
+    if (row < 0)
+    {
+        return 0;
+    }
+
+    
 }
 
 void preencherMatriz(int linha, int coluna, int matriz[linha][coluna])
