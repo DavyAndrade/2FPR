@@ -30,11 +30,11 @@ void leituraDados(TAluno turma[], int tamanho)
     // Preenchimento dos dados dos alunos
     for (i = 0; i < tamanho; i++)
     {
-        printf("\nEntre com o nome do aluno: ");
+        printf("\nEntre com o Nome do Aluno [%d]: ", i + 1);
         fgets(turma[i].nome, sizeof(turma[i].nome), stdin);
-        fflush(stdin);
+        turma[i].nome[strlen(turma[tamanho].nome)] = '\0';
 
-        printf("Entre com as notas do aluno: ");
+        printf("Entre com as Notas do Aluno: ");
         scanf("%f %f", &turma[i].AV1, &turma[i].AV2);
         fflush(stdin);
     }
