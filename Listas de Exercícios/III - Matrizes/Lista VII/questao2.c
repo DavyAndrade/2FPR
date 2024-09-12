@@ -31,61 +31,62 @@ Trocar as colunas 1 e 3 da matriz abaixo:
 #include <stdlib.h>
 #include <time.h>
 
-#define N 5
+#define row 4
+#define column 4
 
-int trocarColunas(int coluna1, int coluna2, int ordem, int matriz[ordem][ordem]);
-void preencherMatriz(int ordem, int matriz[ordem][ordem]);
-void exibirMatriz(int ordem, int matriz[ordem][ordem]);
+int trocarColunas(int c1, int c2, int L, int C, int M[L][C]);
+void preencherMatriz(int linha, int coluna, int matriz[linha][coluna]);
+void exibirMatriz(int linha, int coluna, int matriz[linha][coluna]);
 
 int main()
 {
-    int matriz[N][N], c1, c2;
+    int matriz[row][column], coluna1, coluna2;
 
-    preencherMatriz(N, matriz);
+    preencherMatriz(row, column, matriz);
 
     printf("Entre com a primeira coluna: ");
-    scanf("%d", &c1);
+    scanf("%d", &coluna1);
 
     printf("Entre com a segunda coluna: ");
-    scanf("%d", &c2);
+    scanf("%d", &coluna2);
 
     printf("\nMatriz Original: ");
-    exibirMatriz(N, matriz);
+    exibirMatriz(row, column, matriz);
 
-    trocarColunas(c1, c2, N, matriz);
+    trocarColunas(coluna1, coluna2, row, column, matriz);
 
     printf("\nMatriz com Colunas Trocadas: ");
-    exibirMatriz(N, matriz);
+    exibirMatriz(row, column, matriz);
 }
 
-int trocarColunas(int coluna1, int coluna2, int ordem, int matriz[ordem][ordem])
+int trocarColunas(int c1, int c2, int L, int C, int M[L][C])
 {
     int i, j;
 }
 
-void preencherMatriz(int ordem, int matriz[ordem][ordem])
+void preencherMatriz(int linha, int coluna, int matriz[linha][coluna])
 {
     int i, j;
 
     srand(time(NULL));
 
-    for (i = 0; i < ordem; i++)
+    for (i = 0; i < linha; i++)
     {
-        for (j = 0; j < ordem; j++)
+        for (j = 0; j < coluna; j++)
         {
             matriz[i][j] = rand() % 10;
         }
     }
 }
 
-void exibirMatriz(int ordem, int matriz[ordem][ordem])
+void exibirMatriz(int linha, int coluna, int matriz[linha][coluna])
 {
     int i, j;
 
-    printf("\nMatriz [%d][%d]: \n", ordem, ordem);
-    for (i = 0; i < ordem; i++)
+    printf("\nMatriz [%d][%d]: \n", linha, coluna);
+    for (i = 0; i < linha; i++)
     {
-        for (j = 0; j < ordem; j++)
+        for (j = 0; j < coluna; j++)
         {
             printf("%d ", matriz[i][j]);
         }
