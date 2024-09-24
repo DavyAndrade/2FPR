@@ -43,6 +43,8 @@ int main()
     int matriz[row][column], coluna1, coluna2;
 
     preencherMatriz(row, column, matriz);
+    printf("\nMatriz Original: ");
+    exibirMatriz(row, column, matriz);
 
     printf("Entre com a primeira coluna: ");
     scanf("%d", &coluna1);
@@ -50,18 +52,42 @@ int main()
     printf("Entre com a segunda coluna: ");
     scanf("%d", &coluna2);
 
-    printf("\nMatriz Original: ");
-    exibirMatriz(row, column, matriz);
-
-    trocarColunas(coluna1, coluna2, row, column, matriz);
-
-    printf("\nMatriz com Colunas Trocadas: ");
-    exibirMatriz(row, column, matriz);
+    if (trocarColunas(coluna1, coluna2, row, column, matriz) == 1)
+    {
+        printf("Colunas Trocadas com Sucesso!\n");
+        printf("\nMatriz com Colunas Trocadas: ");
+        exibirMatriz(row, column, matriz);
+    }
 }
 
 int trocarColunas(int c1, int c2, int L, int C, int M[L][C])
 {
-    int i, j;
+    int i, j, vetAux[L];
+
+    if (c1 < 0 || c2 < 0 || c1 >= C || c2 >= C || c1 == c2)
+    {
+        return 0;
+    }
+
+    // Armazenando os valores da Coluna 1 em um vetor auxiliar.
+    for (i = 0; i < L; i++)
+    {
+        vetAux[i] = M[i][c1];
+    }
+
+    // Armazenando os valores da Coluna 2 em cada posição da Coluna 1.
+    for (i = L - 1, j = 0; j < L; j++, i--)
+    {
+        M[i][c2] = M[j][c1];
+    }
+
+    // Armazenando os valores do vetor auxiliar na Coluna 1.
+    for (i = 0; i < L; i++)
+    {
+        M[i][c1] = vetAux[i];
+    }
+
+    return 1;
 }
 
 void preencherMatriz(int linha, int coluna, int matriz[linha][coluna])
