@@ -54,7 +54,7 @@ int verificarOrdenacao(char *nomeArquivo)
             }
             num1 = num2;
         }
-        fclose(arq);
-        return 1;
     }
+    fclose(arq);
+    return 1;
 }
