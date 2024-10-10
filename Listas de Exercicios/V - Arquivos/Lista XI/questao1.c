@@ -45,8 +45,8 @@ int quantidadeOcorrencias(char *nomeArquivo1, char *nomeArquivo2);
 
 int main()
 {
-    char arquivo1[15] = "questao1-A.txt";
-    char arquivo2[15] = "questao1-B.txt";
+    char arquivo1[] = "questao1-A.txt";
+    char arquivo2[] = "questao1-B.txt";
     int result = quantidadeOcorrencias(arquivo1, arquivo2);
 
     if (result)

@@ -22,9 +22,9 @@ int uniaoArquivos(char *nomeArquivoA, char *nomeArquivoB, char *nomeArquivoC);
 
 int main()
 {
-    char nomeArquivoA[15] = "questao6-A.txt";
-    char nomeArquivoB[15] = "questao6-B.txt";
-    char nomeArquivoC[15] = "questao6-C.txt";
+    char nomeArquivoA[] = "questao6-A.txt";
+    char nomeArquivoB[] = "questao6-B.txt";
+    char nomeArquivoC[] = "questao6-C.txt";
 
     int resultado = uniaoArquivos(nomeArquivoA, nomeArquivoB, nomeArquivoC);
 
