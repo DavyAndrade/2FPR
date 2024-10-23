@@ -44,7 +44,7 @@ A > 0? Sim
 
     A > B? Sim
 
-        funcao (10-1, 5+2) + funcao (-5, 5) // segunda função retorna b (vulgo 5)
+        funcao (10-1, 5+2) + funcao (5-10, 5) // segunda função retorna b (vulgo 5)
 
     9 > 7? Sim
 
@@ -69,3 +69,29 @@ A > 0? Sim
     5 + 7 + 9 = 21
 
 */
+
+#include <stdio.h>
+
+int funcao(int a, int b)
+{
+    if (a > 0)
+    {
+        if (a > b)
+        {
+            return funcao(a - 1, b + 2) + funcao(b - a, b);
+        }
+        else
+        {
+            return funcao(a - 2, b);
+        }
+    }
+    else
+    {
+        return b;
+    }
+}
+
+int main()
+{
+    printf("Resposta = %d\n", funcao(10, 5));
+}

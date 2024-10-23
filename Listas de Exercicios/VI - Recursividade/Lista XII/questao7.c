@@ -1,0 +1,40 @@
+/*
+Questão 07:
+Desenvolver uma função recursiva que
+determine o número de caracteres comuns
+entre duas strings s1 e s2.
+*/
+
+#include <stdio.h>
+#include <string.h>
+
+int contarCaracteresComuns(char s1[], char s2[], int i, int j);
+
+int main()
+{
+    char s1[] = "tato";
+    char s2[] = "dado";
+
+    int numCaracteresComuns = contarCaracteresComuns(s1, s2, 0, 0);
+
+    printf("Numero de caracteres comuns: %d\n", numCaracteresComuns);
+
+    return 0;
+}
+
+int contarCaracteresComuns(char s1[], char s2[], int i, int j)
+{
+    if (i == strlen(s1) - 1 || j == strlen(s2) - 1)
+    {
+        return 0;
+    }
+
+    if (s1[i] == s2[j])
+    {
+        return 1 + contarCaracteresComuns(s1, s2, i + 1, j + 1);
+    }
+    else
+    {
+        return contarCaracteresComuns(s1, s2, i, j + 1);
+    }
+}
