@@ -7,32 +7,28 @@ uma string, exiba-a invertida.
 #include <stdio.h>
 #include <string.h>
 
-void invertirString(char str[], int i, int j);
+void exibirStringInvertida(char str[], int i);
 
 int main()
 {
     char string[] = "Hello, World!";
 
-    invertirString(string, 0, strlen(string) - 1);
-    printf("Invertida: %s\n", string);
+    exibirStringInvertida(string, strlen(string) - 1);
 
     return 0;
 }
 
-void invertirString(char str[], int i, int j)
+void exibirStringInvertida(char str[], int i)
 {
     // Caso Base
-    if (i >= j)
+    if (i < 0)
     {
-        return;
+        printf("\n");
     }
     else
     {
         // Caso Geral
-        char temp = str[i];
-        str[i] = str[j];
-        str[j] = temp;
-
-        invertirString(str, i + 1, j - 1);
+        printf("%c", str[i]);
+        exibirStringInvertida(str, i - 1);
     }
 }
