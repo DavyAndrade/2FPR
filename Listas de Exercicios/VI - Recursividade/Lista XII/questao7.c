@@ -12,8 +12,8 @@ int contarCaracteresComuns(char s1[], char s2[], int i, int j);
 
 int main()
 {
-    char s1[] = "tato";
-    char s2[] = "dado";
+    char s1[] = "tabu";
+    char s2[] = "tabuada";
 
     int numCaracteresComuns = contarCaracteresComuns(s1, s2, 0, 0);
 
@@ -24,15 +24,24 @@ int main()
 
 int contarCaracteresComuns(char s1[], char s2[], int i, int j)
 {
-    if (i == strlen(s1) - 1 || j == strlen(s2) - 1)
+    // Caso Base
+    if (s1[i] == '\0')
     {
         return 0;
     }
 
+    // Caso Geral 1
+    if (s2[j] == '\0')
+    {
+        return contarCaracteresComuns(s1, s2, i + 1, 0);
+    }
+
+    // Caso Geral 2
     if (s1[i] == s2[j])
     {
-        return 1 + contarCaracteresComuns(s1, s2, i + 1, j + 1);
+        return 1 + contarCaracteresComuns(s1, s2, i + 1, 0);
     }
+    // Caso Geral 3
     else
     {
         return contarCaracteresComuns(s1, s2, i, j + 1);
