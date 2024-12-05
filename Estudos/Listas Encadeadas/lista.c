@@ -1,11 +1,3 @@
-/*
-    FAETERJ-Rio
-    Fundamentos de Programação - FPR - Turma: Manhã
-    Data: 07/11/2024
-
-    Listas Dinâmicas (listas encadeadas)
-*/
-
 // importação de bibliotecas
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,7 +21,7 @@ void exibir(TLista L);
 int menu();
 
 // main
-void main()
+int main()
 {
     // declaração de variáveis
     TLista L = NULL; // representando a lista inicialmente vazia
